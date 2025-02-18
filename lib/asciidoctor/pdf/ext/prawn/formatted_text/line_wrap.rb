@@ -22,7 +22,8 @@ Prawn::Text::Formatted::LineWrap.prepend (Module.new do
           segment_width = effective_segment_width = @document.width_of segment, kerning: @kerning
           effective_segment_width += joined_string_width if idx === last_idx
         end
-        if @accumulated_width + effective_segment_width <= @width
+        punctuation = !!(segment =~ /^[。，？）】、；’”》\u200B]*$/)
+        if @accumulated_width + effective_segment_width <= @width || punctuation
           @accumulated_width += segment_width
           if segment[-1] == (shy = soft_hyphen segment.encoding)
             @accumulated_width -= (@document.width_of shy, kerning: @kerning)
