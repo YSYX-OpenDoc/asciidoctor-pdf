@@ -117,7 +117,7 @@ module Asciidoctor
       UrlSniffRx = %r(^\p{Alpha}[\p{Alnum}+.-]*://)
       LineScanRx = /\n|.+/
       BlankLineRx = /\n{2,}/
-      CjkLineBreakRx = /(?=[\u3000\u30a0-\u30ff\u3040-\u309f\p{Han}\uff00-\uffef])/
+      CjkLineBreakRx = /(?=[\u3000\u30a0-\u30ff\u3040-\u309f\p{Han}\uff00-\uffef。，？）】、；’”》])|(?<=[\u3000\u30a0-\u30ff\u3040-\u309f\p{Han}\uff00-\uffef。，？）】、；’”》])/
       WhitespaceChars = ' ' + TAB + LF
       DoubleSpaceRx = / (?= )/
       ValueSeparatorRx = /;|,/
